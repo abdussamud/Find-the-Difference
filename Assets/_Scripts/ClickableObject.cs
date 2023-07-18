@@ -22,6 +22,8 @@ public class ClickableObject : MonoBehaviour
             {
                 obj.TurnOn(obj.rightSelection);
                 TurnOn(rightSelection);
+                GameController.Instance.health -= 10;
+                GameplayUI.Instance.SetHealthBar(GameController.Instance.health);
                 return;
             }
         }
