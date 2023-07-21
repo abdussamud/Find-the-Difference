@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class GameplayUI : MonoBehaviour
 {
     public static GameplayUI Instance { get; private set; }
-    [SerializeField] private Image healthBar;
+
+    public GameObject gameplayPanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject gameWonPanel;
+    [SerializeField] private Image healthBar;
+    public CompletionDot[] completionDot;
     private const float DURATION = 0.4f;
 
 
@@ -45,5 +49,15 @@ public class GameplayUI : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("Gameplay");
+    }
+
+    public void GameWon()
+    {
+        Invoke(nameof(ActivateGameWon), 1.2f);
+    }
+
+    private void ActivateGameWon()
+    {
+        gameWonPanel.SetActive(true);
     }
 }
