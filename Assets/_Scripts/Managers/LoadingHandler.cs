@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class LoadingHandler : MonoBehaviour
 {
+    public float loadDuration;
     [SerializeField] private string sceneName;
-    [SerializeField] private Slider loadingslider;
+    [SerializeField] private Image loadingImage;
 
 
     private void Start()
     {
         sceneName = GameManager.Instance.nextScene;
-        if (sceneName == string.Empty )
+        if (sceneName == string.Empty)
         {
             sceneName = "Main Menu";
         }
-        //_ = loadingSlider.DoValue(1, 3);
         _ = StartCoroutine(StartLoading());
     }
 
@@ -24,8 +24,28 @@ public class LoadingHandler : MonoBehaviour
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         operation.allowSceneActivation = false;
-        yield return new WaitForSeconds(3);
+
+        yield return FillRadial(loadDuration, false);
+
+        yield return FillRadial(loadDuration, true);
+
         operation.allowSceneActivation = true;
-        yield return null;
+    }
+
+    private IEnumerator FillRadial(float duration, bool clockwise)
+    {
+        float elapsedTime = 0;
+        float startFillAmount = clockwise ? 1 : 0;
+        float endFillAmount = clockwise ? 0 : 1;
+        loadingImage.fillClockwise = clockwise;
+
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            loadingImage.fillAmount = Mathf.Lerp(startFillAmount, endFillAmount, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        loadingImage.fillAmount = endFillAmount;
     }
 }
