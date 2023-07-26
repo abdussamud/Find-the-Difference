@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LoadingHandler : MonoBehaviour
 {
-    public float loadDuration;
+    [SerializeField] private float loadingDuration;
     [SerializeField] private string sceneName;
     [SerializeField] private Image loadingImage;
 
@@ -13,10 +13,9 @@ public class LoadingHandler : MonoBehaviour
     private void Start()
     {
         sceneName = GameManager.Instance.nextScene;
-        if (sceneName == string.Empty)
-        {
-            sceneName = "Main Menu";
-        }
+        loadingDuration = GameManager.Instance.loadingDuration;
+        if (loadingDuration == 0) { loadingDuration = 5f; }
+        if (sceneName == string.Empty) { sceneName = "Main Menu"; }
         _ = StartCoroutine(StartLoading());
     }
 
@@ -25,9 +24,9 @@ public class LoadingHandler : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         operation.allowSceneActivation = false;
 
-        yield return FillRadial(loadDuration, false);
+        yield return FillRadial(loadingDuration, false);
 
-        yield return FillRadial(loadDuration, true);
+        yield return FillRadial(loadingDuration, true);
 
         operation.allowSceneActivation = true;
     }

@@ -55,6 +55,12 @@ public class GameplayUI : MonoBehaviour
     {
         Invoke(nameof(ActivateGameWon), 1.2f);
     }
+    public void GoHome()
+    {
+        GameManager.Instance.nextScene = "Main Menu";
+        GameManager.Instance.loadingDuration = 1.5f;
+        SceneManager.LoadScene("Loading");
+    }
 
     private void ActivateGameWon()
     {

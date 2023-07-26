@@ -1,4 +1,6 @@
 using System;
+using UnityEngine;
+
 [Serializable]
 public class Level
 {
@@ -6,4 +8,5 @@ public class Level
     public ClickableObject[] upperSimilar;
     public ClickableObject[] lowerSimilar;
     public ClickableObject[] different;
+    public GameObject levelEnvironment;
 }

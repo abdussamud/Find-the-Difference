@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour
     public int findDifferences;
     public Level[] levels;
 
-
     private void Awake()
     {
         Instance = this;
