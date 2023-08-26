@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9025157850052022359
 Transform:
   m_ObjectHideFlags: 0
@@ -93,9 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5461261381590804687}
-  - component: {fileID: -1334922661315742172}
   - component: {fileID: -3728549555081556880}
-  m_Layer: 0
+  - component: {fileID: -1334922661315742172}
+  m_Layer: 6
   m_Name: Diffrence
   m_TagString: Clickable
   m_Icon: {fileID: 0}
@@ -119,20 +119,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1334922661315742172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2798456317795219230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b781b3e330cc874e89bdd2ffd1298b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFound: 0
-  objectID: 0
 --- !u!58 &-3728549555081556880
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,6 +154,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-1334922661315742172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798456317795219230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b781b3e330cc874e89bdd2ffd1298b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solved: 0
+  isFound: 0
+  objectID: 0
+  differIndicator: {fileID: 2109887582166785565}
+  hintIndicator: {fileID: 8209652480923183323}
 --- !u!1 &8209652480923183323
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,10 +4,11 @@ public class CompletionDot : MonoBehaviour
 {
     public int dotID;
     public GameObject innerGO;
+    private GameController Gc => GameController.gc;
 
     private void Start()
     {
-        if (GameController.Instance.totalDifferences <= dotID)
+        if (Gc.totalDifferences <= dotID)
         {
             gameObject.SetActive(false);
         }

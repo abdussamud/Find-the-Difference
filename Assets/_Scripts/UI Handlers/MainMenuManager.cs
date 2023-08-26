@@ -3,10 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    private GameManager Gm => GameManager.Instance;
     public void StartGame()
     {
-        GameManager.Instance.nextScene = "Gameplay";
-        GameManager.Instance.loadingDuration = 2.5f;
+        Gm.nextScene = "Gameplay";
+        Gm.loadingDuration = 2.5f;
         SceneManager.LoadScene("Loading");
     }
 }

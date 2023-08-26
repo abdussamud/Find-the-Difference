@@ -3,17 +3,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadingHandler : MonoBehaviour
+public class LoadingManager : MonoBehaviour
 {
     [SerializeField] private float loadingDuration;
     [SerializeField] private string sceneName;
     [SerializeField] private Image loadingImage;
-
+    private GameManager Gm => GameManager.Instance;
 
     private void Start()
     {
-        sceneName = GameManager.Instance.nextScene;
-        loadingDuration = GameManager.Instance.loadingDuration;
+        sceneName = Gm.nextScene;
+        loadingDuration = Gm.loadingDuration;
         if (loadingDuration == 0) { loadingDuration = 5f; }
         if (sceneName == string.Empty) { sceneName = "Main Menu"; }
         _ = StartCoroutine(StartLoading());
