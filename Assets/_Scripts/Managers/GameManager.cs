@@ -11,5 +11,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        level = PlayerPrefs.GetInt("level");
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.Save();
     }
 }

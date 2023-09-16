@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: -3728549555081556880}
   - component: {fileID: -1334922661315742172}
   m_Layer: 6
-  m_Name: Diffrence
+  m_Name: Difference
   m_TagString: Clickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,10 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   solved: 0
-  isFound: 0
   objectID: 0
-  differIndicator: {fileID: 2109887582166785565}
   hintIndicator: {fileID: 8209652480923183323}
+  differIndicator: {fileID: 2109887582166785565}
 --- !u!1 &8209652480923183323
 GameObject:
   m_ObjectHideFlags: 0
